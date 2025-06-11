@@ -109,7 +109,7 @@ export const projectsData = [
       "logos:pytorch"
     ],
     imageUrl: insiteImg,
-    githubLink: "https://github.com/sebskontos/capstone",
+    githubLink: "https://github.com/sebskontos/InSite-Monitoring",
     demoLink: "https://www.linkedin.com/posts/consilium-solutions-aus_insitemonitoring-consiliumsolutions-projectmanagement-activity-7282961827896926208-9AEV"
   },
   {
