@@ -31,13 +31,17 @@ export default function ThemeContextProvider({
       document.documentElement.classList.remove("dark");
     }
 
-    // Force repaint specifically for mobile browsers
-    requestAnimationFrame(() => {
-      // Force repaint on body and all children
-      document.body.style.display = 'none';
-      document.body.offsetHeight;
-      document.body.style.display = '';
-    });
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
+        document.body.style.display = 'none';
+        document.body.offsetHeight;
+        document.body.style.display = '';
+        window.scrollTo(0, scrollTop);
+      });
+    }
   };
 
   useEffect(() => {
