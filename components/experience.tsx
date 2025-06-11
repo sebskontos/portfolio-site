@@ -2,14 +2,26 @@
 
 import React from "react";
 import SectionHeading from "./section-heading";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
-import { experiencesData } from "@/lib/data";
+import dynamic from "next/dynamic";
 import { useSectionInView } from "@/lib/hooks";
 import { useTheme } from "@/context/theme-context";
+
+const VerticalTimeline = dynamic(
+  () =>
+    import("react-vertical-timeline-component").then(
+      (mod) => mod.VerticalTimeline
+    ),
+  { ssr: false }
+);
+const VerticalTimelineElement = dynamic(
+  () =>
+    import("react-vertical-timeline-component").then(
+      (mod) => mod.VerticalTimelineElement
+    ),
+  { ssr: false }
+);
+import "react-vertical-timeline-component/style.min.css";
+import { experiencesData } from "@/lib/data";
 
 export default function Experience() {
   const { ref } = useSectionInView("Experience");
