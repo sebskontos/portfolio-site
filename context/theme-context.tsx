@@ -30,6 +30,14 @@ export default function ThemeContextProvider({
       window.localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
     }
+
+    // Force repaint specifically for mobile browsers
+    requestAnimationFrame(() => {
+      // Force repaint on body and all children
+      document.body.style.display = 'none';
+      document.body.offsetHeight;
+      document.body.style.display = '';
+    });
   };
 
   useEffect(() => {
