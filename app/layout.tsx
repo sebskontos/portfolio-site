@@ -11,6 +11,9 @@ const nunito = Nunito({ subsets: ["latin"] });
 export const metadata = {
   title: "Sebastian Skontos Portfolio",
   description: "Student Software Engineer",
+  openGraph: {
+    images: ['/thumbnail.png'],
+  },
 };
 
 export default function RootLayout({
